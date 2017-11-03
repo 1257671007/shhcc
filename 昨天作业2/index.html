@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:"http://localhost:3000/app",
+                type:"POST",
+                success:function(e){
+                    var str="";
+                    for(var i in e){
+                        str+="<li><span class='lft'>"+e[i].name+"</span><span class='rgt'>"+e[i].title+"</span></li>"
+                    }
+                    $("ul").html(str)
+                }
+            })
+        })
+    </script>
+    <style>
+        li{
+            list-style: none;
+            width: 500px;
+            border-bottom: dashed 1px #666;
+            margin: 0 auto;
+            height: 30px;
+            line-height: 30px;
+        }
+        .lft{
+            float: left;
+        }
+        .rgt{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<ul></ul>
+</body>
+</html>
+
